@@ -25,17 +25,17 @@ mongoose
 app.use(bodyParser.json({ limit: "2mb" }));
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("HOME PAGE");
-});
-app.post("/hello", (req, res) => {
-  console.log(req.body);
-  res.send("HELLO HELLO HELLO");
-});
-app.get("/bye", (req, res) => {
-  res.send("BYE BYE BYE BYE");
-});
-app.post("/name", createName);
+// app.get("/", (req, res) => {
+//   res.send("HOME PAGE");
+// });
+// app.post("/hello", (req, res) => {
+//   console.log(req.body);
+//   res.send("HELLO HELLO HELLO");
+// });
+// app.get("/bye", (req, res) => {
+//   res.send("BYE BYE BYE BYE");
+// });
+// app.post("/name", createName);
 
 // port
 const port = process.env.PORT || 8000;
