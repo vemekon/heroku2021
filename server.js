@@ -25,18 +25,6 @@ mongoose
 app.use(bodyParser.json({ limit: "2mb" }));
 app.use(cors());
 
-// app.get("/", (req, res) => {
-//   res.send("HOME PAGE");
-// });
-// app.post("/hello", (req, res) => {
-//   console.log(req.body);
-//   res.send("HELLO HELLO HELLO");
-// });
-// app.get("/bye", (req, res) => {
-//   res.send("BYE BYE BYE BYE");
-// });
-// app.post("/name", createName);
-
 // port
 const port = process.env.PORT || 8000;
 // const reactPath = path.resolve(__dirname, "..", "..", "my-app", "build");
@@ -53,5 +41,16 @@ app.use(express.static(publicPath));
 app.get("*", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
 });
+app.get("/", (req, res) => {
+  res.send("HOME PAGE");
+});
+app.post("/hello", (req, res) => {
+  console.log(req.body);
+  res.send("HELLO HELLO HELLO");
+});
+app.get("/bye", (req, res) => {
+  res.send("BYE BYE BYE BYE");
+});
+app.post("/name", createName);
 
 app.listen(port, () => console.log(`Server is running good on port ${port}`));
