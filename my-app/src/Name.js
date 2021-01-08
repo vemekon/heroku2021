@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const getName = async (slug) =>
-  await axios.post(`${process.env.REACT_APP_API}/name`, {
+  //await axios.post(`${process.env.REACT_APP_API}/name`, {
+  await axios.post("/name", {
     slug,
   });
 
