@@ -39,13 +39,19 @@ app.post("/name", createName);
 
 // port
 const port = process.env.PORT || 8000;
-const reactPath = path.resolve(__dirname, "..", "..", "my-app", "build");
-//console.log(reactPath);
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+// const reactPath = path.resolve(__dirname, "..", "..", "my-app", "build");
+// //console.log(reactPath);
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// }
+
+const publicPath = path.join(__dirname, "..", "build");
+app.use(express.static(publicPath));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"));
+});
 
 app.listen(port, () => console.log(`Server is running good on port ${port}`));
